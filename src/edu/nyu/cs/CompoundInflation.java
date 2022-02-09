@@ -25,7 +25,26 @@ import java.util.Scanner;
     
     public static void main(String[] args) {
         
-        // complete this function to solve the problem
+        // Monthly inflation:
+        double monthly_inflation = 0.10/12;
 
+        //Scanner so we can read input from user:
+        Scanner scnr = new Scanner(System.in);
+        
+        // Collecting input as form of a string:
+        System.out.println("Enter savings per month: ");
+        String savings_str = scnr.nextLine();
+
+        // Transform string to double to perform mathematical expressions:
+        double savings_num = Double.parseDouble(savings_str);
+
+        // Since we are compounding for six months, we multiply savings times 1 - inflation to the 6th power:
+        double total = savings_num * Math.pow(1 - monthly_inflation, 6);
+
+        // Print formatted result:
+        System.out.println("If you save $" + Math.round(savings_num)+ " per month with 10% annual inflation, after 6 months, your account will hold an amount equivalent to $" + Math.round(total)+" today.");
+        
+        // Close Scanner:
+        scnr.close();
     }
 }
